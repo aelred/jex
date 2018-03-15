@@ -1,6 +1,6 @@
 package red.ael.jex
 
-internal data class Union(private val regexps: List<SimpleRegexBuilder>) : RegexBuilder {
+internal data class Union(private val regexps: List<SimpleRegexBuilder>) : RegexBuilder() {
     override fun append(builder: StringBuilder) {
         var firstElem = true
         for (regexp in regexps) {
@@ -11,9 +11,5 @@ internal data class Union(private val regexps: List<SimpleRegexBuilder>) : Regex
             }
             builder.add(regexp)
         }
-    }
-
-    override fun toString(): String {
-        return regexString()
     }
 }

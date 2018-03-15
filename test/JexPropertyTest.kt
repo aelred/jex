@@ -9,19 +9,19 @@ import red.ael.jex.any
 import red.ael.jex.lit
 import red.ael.jex.times
 
-class JexIT : StringSpec() {
+class JexPropertyTest : StringSpec() {
 
     init {
         "can create a simple regexp" {
             val regexp = (("abc" * any().zeroOrMore()) + "xyz") * "a"
 
-            regexp.regexString() shouldBe "(abc.*|xyz)a"
+            regexp.toString() shouldBe "(abc.*|xyz)a"
         }
 
         "can create a simple regexp with special characters" {
             val regexp = lit("abc.*")
 
-            regexp.regexString() shouldBe "abc\\.\\*"
+            regexp.toString() shouldBe "abc\\.\\*"
         }
 
         "/x/ matches 'x" {
@@ -90,7 +90,7 @@ class JexIT : StringSpec() {
     }
 
     private fun RegexBuilder.matches(string: String): Boolean {
-        return Regex(regexString()).matches(string)
+        return Regex(toString()).matches(string)
     }
 
     private fun splitsOf(string: String): List<Pair<String, String>> {

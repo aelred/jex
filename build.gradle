@@ -12,6 +12,11 @@ buildscript {
 
 apply plugin: "kotlin"
 
+sourceSets {
+    main.kotlin.srcDirs 'src'
+    test.kotlin.srcDirs 'test'
+}
+
 compileKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
